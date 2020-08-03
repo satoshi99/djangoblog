@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand" href="/">Event Horizon</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'blog:about' %}">About</a>
+      </li>
+      <!--<li class="nav-item">
+        <a class="nav-link" href="#">Contact</a>
+      </li>-->
+    </ul>
+    {% include "blog/snippets/search_form.html" %}
+  </div>
+</nav>

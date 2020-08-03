@@ -1,0 +1,19 @@
+{% if is_paginated %}
+<nav>
+  {% if page_obj.has_previous %}
+  <a class="otherpg" href="?page={{ page_obj.previous_page_number }}">Prev</a>
+  {% endif %}
+
+  {% for num in paginator.page_range %}
+  {% if page_obj.number == num %}
+  <span class="currentpg">{{ num }}</span>
+  {% else %}
+  <a class="otherpg" href="?page={{ num }}">{{ num }}</a>
+  {% endif %}
+  {% endfor %}
+
+  {% if page_obj.has_next %}
+  <a class="otherpg" href="?page={{ page_obj.next_page_number }}">Next</a>
+  {% endif %}
+</nav>
+{% endif %}

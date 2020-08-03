@@ -1,0 +1,19 @@
+.post-header {
+background: linear-gradient(-135deg, #feac5e, #c779d0, #4bc0c8);
+padding: 30px 50px;
+}
+
+.post-title {
+color: white;
+opacity: 0.8;
+}
+
+.post-description {
+color: white;
+margin-bottom: 20px;
+opacity: 0.8;
+}
+
+.post-container {
+padding: 30px;
+}

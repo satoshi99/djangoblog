@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{% if query %}{{ query }}{% endif %} | {{ block.super }}{% endblock %}
+{% block description %}検索ワード「{% if query %}{{ query }}{% endif %}」の検索結果ページです。{% endblock %}
+
+{% block content %}
+
+<h1 class="search-title">{{ paginator.count }} matching results for " {% if query %}{{ query }}{% endif %} "</h1>
+<p class="search-num">{{ page_obj.start_index }}-{{ page_obj.end_index }}件（{{ paginator.count }}件）</p>
+{% include "blog/snippets/main_post_list.html" %}
+{% include "blog/snippets/pagination.html" %}
+
+
+
+{% endblock %}

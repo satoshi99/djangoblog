@@ -1,0 +1,48 @@
+
+{% extends "base.html" %}
+
+{% block title %}Blog | {{ tag.name }}{% endblock %}
+{% block description %}マイブログです。毎日更新します。{% endblock %}
+
+{% block content %}
+<div class="postlist-container">
+    <div class="row">
+        <main class="col-md-9">
+
+{% for post in object_list %}
+{% if user.is_authenticated or post.is_public %}
+    <div class="col-md-6 card-container">
+        <a href="{% url 'blog:post_detail' post.id %}">
+      <div class="post-card row no-gutters rounded overflow-hidden flex-md-row mb-4">
+        <div class="col p-4 d-flex flex-column position-static">
+          <p class="mb-1">{{ post.published_at|date }}</p>
+          <h3 class="mb-0">{{ post.title }}</h3>{% if not post.is_public %}[Draft]{% endif %}
+            <br>
+          <p class="card-text mb-auto">{{ post.description }}</p>
+        </div>
+          <br>
+        <div class="col-auto d-none d-lg-block">
+            {% if post.image %}
+            <img class="bd-placeholder-img" src="{{ post.image.url }}" alt="{{ post.title }}" width="100%" height="200px">
+            {% endif %}
+        </div>
+      </div>
+</a>
+    </div>
+{% endif %}
+{% endfor %}
+
+            <div class="pg">
+                {% include "blog/snippets/pagination.html" %}
+            </div>
+        </main>
+        <aside class="col-md-3">
+          <h1 class="tag-title">Tagged of <span>#{{ tag.name }}</span></h1>
+            {% include "blog/snippets/sidebar.html" %}
+        </aside>
+    </div>
+
+</div>
+
+
+{% endblock %}

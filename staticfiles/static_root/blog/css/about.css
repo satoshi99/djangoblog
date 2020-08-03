@@ -1,0 +1,14 @@
+.about_container {
+height: 570px;
+padding: 40px;
+}
+
+h1 {
+color: #011952;
+float: right;
+}
+
+.content {
+float: left;
+width: 70%;
+}

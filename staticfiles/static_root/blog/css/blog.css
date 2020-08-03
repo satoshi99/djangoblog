@@ -1,0 +1,159 @@
+
+
+.bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        padding: 5px;
+      }
+
+.navbar {
+background-color: #F00078;
+}
+
+.search-title {
+padding-top: 30px;
+text-align: center;
+}
+
+.search-num {
+text-align: right;
+padding-right: 50px;
+}
+
+
+.title {
+  font-family: times;
+  font-size: 150px;
+  float: right;
+  padding-right: 50px;
+  position: relative;
+  z-index: 10;
+}
+
+.jumbotron {
+border-radius: 0;
+height: 500px;
+background-color: #011952;
+margin-bottom: 0;
+}
+
+.jumbotron h1, .jumbotron p {
+color: #D7F9E7;
+position: relative;
+z-index: 10;
+}
+
+.jumbotron a {
+color: #D7F9E7;
+}
+
+strong {
+color: #F00078;
+}
+
+.top-image {
+position: absolute;
+top: 230px;
+right: 130px;
+}
+
+.post-container {
+padding: 30px 10px 20px 10px;
+display: inline-block;
+}
+
+.card-container {
+float: left;
+}
+
+.post-card {
+background-color: white;
+}
+
+.continue {
+color: white;
+}
+
+
+@media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: arial;
+}
+
+h2, h3, h4, h5, h6 {
+  color: #011952;
+  font-weight: bold;
+}
+
+.display-4 {
+  font-size: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .display-4 {
+    font-size: 3rem;
+  }
+}
+
+
+.flex-auto {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.h-250 { height: 250px; }
+@media (min-width: 768px) {
+  .h-md-250 { height: 250px; }
+}
+
+footer {
+    color: #D7F9E7;
+    background-color: #011952;
+    text-align: center;
+    padding: 20px 0;
+    }
+    footer p {
+    padding-top: 10px;
+    }
+    footer a {
+      color: #D7F9E7;
+      }
+      footer a:hover {
+        color: #F00078;
+        text-decoration-line: none;
+        }
+      footer a .fab {
+        font-size: 30px;
+        margin: 0 10px; }
+        footer a .fab:hover {
+          cursor: pointer;
+          }
+
+  .copyright {
+    font-size: 12px;
+    }
+
+@media (max-width: 768px) {
+  .title {
+  font-size: 3rem;
+  float: none;
+  text-align: right;
+  padding-right: 10px;
+ }
+ .top-image {
+ top: 250px;
+ right: 30px;
+width: 400px;
+height: 250px;
+}
+}

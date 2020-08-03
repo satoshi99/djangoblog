@@ -1,0 +1,16 @@
+.about-container {
+background-color: #011952;
+height: 500px;
+padding: 40px;
+}
+
+.about-container h1 {
+color: #f0e68c;
+float: right;
+}
+
+.about-content {
+color: white;
+font-size: 24px;
+width: 70%;
+}

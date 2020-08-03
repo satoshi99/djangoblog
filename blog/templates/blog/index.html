@@ -1,10 +1,47 @@
-<html>
-    <head>
-        <title>Event Horizon | SatoshiYoshida Official Blog</title>
-    </head>
-    <body>
-    <h1>Event Horizon</h1>
-        <p>Hi there!</p>
-        <p>It works!</p>
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Blog | {{ block.super }}{% endblock %}
+{% block description %}マイブログです。毎日更新します。{% endblock %}
+
+{% block content %}
+
+    <h1 class="title">Blog</h1>
+<div class="top-post">
+        <h1 class="display-4 font-italic">Tensorflowで<br>量子コンピューティング</h1>
+        <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
+        <p class="lead mb-0"><a href="#" class="font-weight-bold">Continue reading...</a></p>
+</div>
+    <img class="top-image" src="/media/post_images/2765574_s.jpg" width="600" height="400" alt="Pipenv | Python">
+
+<div class="area" >
+            <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
+
+<div class="postlist-container">
+    <div class="row">
+        <main class="col-md-9">
+            {% include "blog/snippets/main_post_list.html" %}
+            <div class="pg">
+                {% include "blog/snippets/pagination.html" %}
+            </div>
+        </main>
+        <aside class="col-md-3">
+            {% include "blog/snippets/sidebar.html" %}
+        </aside>
+    </div>
+
+</div>
+
+
+{% endblock %}

@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<h1>Tags</h1>
+<ul>
+    {% for tag in object_list %}
+    <li><a href="{% url 'blog:tag_post' tag.slug %}">{{ tag.name }} ({{ tag.num_posts }})</a></li>
+    {% empty %}
+    <li>There are no tags.</li>
+    {% endfor %}
+</ul>
