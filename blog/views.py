@@ -23,11 +23,13 @@ class IndexView(ListView):
     template_name = 'blog/index.html'
     paginate_by = 12
 
+    def get_queryset(self):
+        self.posts = Post.objects.filter(published_at__lt=Post.objects.latest("published_at").published_at).order_by('-published_at')
+        return self.posts
 
 class CategoryListView(ListView):
     queryset = Category.objects.annotate(
         num_posts=Count('post', filter=Q(post__is_public=True)))
-
 
 class TagListView(ListView):
     queryset = Tag.objects.annotate(num_posts=Count(
@@ -62,10 +64,6 @@ class TagPostView(ListView):
         context = super().get_context_data(**kwargs)
         context['tag'] = self.tag
         return context
-
-
-
-
 
 class SearchPostView(ListView):
     model = Post
