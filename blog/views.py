@@ -5,7 +5,7 @@ from django.views.generic.list import ListView
 from django.views.generic import TemplateView
 from django.shortcuts import get_object_or_404
 
-from blog.models import Post, Category, Tag
+from blog.models import Post, Tag
 
 
 class PostDetailView(DetailView):
@@ -27,28 +27,11 @@ class IndexView(ListView):
         self.posts = Post.objects.filter(published_at__lt=Post.objects.latest("published_at").published_at).order_by('-published_at')
         return self.posts
 
-class CategoryListView(ListView):
-    queryset = Category.objects.annotate(
-        num_posts=Count('post', filter=Q(post__is_public=True)))
 
 class TagListView(ListView):
     queryset = Tag.objects.annotate(num_posts=Count(
         'post', filter=Q(post__is_public=True)))
 
-class CategoryPostView(ListView):
-    model = Post
-    template_name = 'blog/category_post.html'
-
-    def get_queryset(self):
-        category_slug = self.kwargs['category_slug']
-        self.category = get_object_or_404(Category, slug=category_slug)
-        qs = super().get_queryset().filter(category=self.category)
-        return qs
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['category'] = self.category
-        return context
 
 class TagPostView(ListView):
     model = Post
@@ -75,7 +58,6 @@ class SearchPostView(ListView):
         lookups = (
             Q(title__icontains=query) |
             Q(content__icontains=query) |
-            Q(category__name__icontains=query) |
             Q(tags__name__icontains=query)
         )
         if query is not None:
@@ -91,7 +73,6 @@ class SearchPostView(ListView):
         return context
 
 class AboutView(TemplateView):
-
     template_name = "blog/about.html"
 
 about = AboutView.as_view()

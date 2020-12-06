@@ -4,14 +4,6 @@ from django.utils import timezone
 from markdownx.models import MarkdownxField
 from markdownx.utils import markdownify
 
-class Category(models.Model):
-    name = models.CharField(max_length=255)
-    slug = models.SlugField(unique=True)
-    timestamp = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.name
-
 
 class Tag(models.Model):
     name = models.CharField(max_length=255)
@@ -22,7 +14,6 @@ class Tag(models.Model):
         return self.name
 
 class Post(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.PROTECT)
     tags = models.ManyToManyField(Tag, blank=True)
     title = models.CharField(max_length=255)
     content = MarkdownxField('Content', help_text='To Write with Markdown format')
